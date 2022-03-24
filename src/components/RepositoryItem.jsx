@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
   },
   avatar: {
     alignSelf: 'flex-start',
+    marginRight: 6,
     width: 50,
     height: 50,
   },
