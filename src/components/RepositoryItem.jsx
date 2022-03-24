@@ -5,35 +5,53 @@ import RepositoryCountItem from "./RepositoryCountItem";
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: 'white',
     display: 'flex',
+    flexDirection: 'column',
   },
   countContainer: {
     display: 'flex',
     flexDirection: 'row', 
     justifyContent: 'space-evenly',
   },
+  itemInfoContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+  },
+  itemTextContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
   languageText: {
     backgroundColor: theme.colors.primary,
+    padding: 3,
+    borderRadius: 10,
   },
   avatar: {
     alignSelf: 'flex-start',
-    width: 55,
-    height: 55,
+    width: 50,
+    height: 50,
   },
 });
 
 const RepositoryItem = ({ item }) => {
   return (
     <View style={styles.container}>
-      <Image 
-        style={styles.avatar}
-        source={{
+      <View style={styles.itemInfoContainer}>
+        <Image 
+          style={styles.avatar}
+          source={{
           uri: item.ownerAvatarUrl
-        }} 
-      />
-      <Text fontWeight="bold">{item.fullName}</Text>
-      <Text color="textSecondary">{item.description}</Text>
-      <Text color="textWhite" style={styles.languageText}>{item.language}</Text>
+          }} 
+        />
+        <View style={styles.itemTextContainer}>
+          <Text fontWeight="bold">{item.fullName}</Text>
+          <Text color="textSecondary">{item.description}</Text>
+          <Text>
+            <Text color="textWhite" style={styles.languageText}>{item.language}</Text>
+        </Text>
+        </View>
+      </View>
       <View style={styles.countContainer}>
         <RepositoryCountItem count={item.stargazersCount} countName="Stars" />
         <RepositoryCountItem count={item.forksCount} countName="Forks" />
