@@ -1,5 +1,7 @@
 import { gql } from "@apollo/client";
 
+/* Added id to query so repository rendering 
+flatlist can have a unique key for every item */
 export const GET_REPOSITORIES = gql`
   query {
     repositories {
@@ -13,6 +15,7 @@ export const GET_REPOSITORIES = gql`
           description
           language
           ownerAvatarUrl
+          id
         }
       }
     }
