@@ -6,6 +6,8 @@ const styles = StyleSheet.create({
   tab: {
     paddingLeft: 5,
     paddingRight: 8,
+    paddingTop: 6,
+    height: 70,
   },
 });
 
