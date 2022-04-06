@@ -10,7 +10,7 @@ const RepositoryCountItem = ({ count, countName}) => {
 
   return (
     <View>
-      <Text fontWeight="bold">
+      <Text testID="repoCountItem" fontWeight="bold">
         {countRounded}
       </Text>
       <Text color="textSecondary">{countName}</Text>

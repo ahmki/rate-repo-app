@@ -46,10 +46,10 @@ const RepositoryItem = ({ item }) => {
           }} 
         />
         <View style={styles.itemTextContainer}>
-          <Text fontWeight="bold">{item.fullName}</Text>
-          <Text color="textSecondary">{item.description}</Text>
+          <Text testID="repoFullName" fontWeight="bold">{item.fullName}</Text>
+          <Text testID="repoDesc" color="textSecondary">{item.description}</Text>
           <Text>
-            <Text color="textWhite" style={styles.languageText}>{item.language}</Text>
+            <Text testID="repoLang" color="textWhite" style={styles.languageText}>{item.language}</Text>
         </Text>
         </View>
       </View>
