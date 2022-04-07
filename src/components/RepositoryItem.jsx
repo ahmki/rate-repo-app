@@ -65,7 +65,7 @@ const RepositoryItem = ({ item, githubLink }) => {
         />
         <View style={styles.itemTextContainer}>
           <Text testID="repoFullName" style={styles.text} fontWeight="bold">{item.fullName}</Text>
-          <Text testID="repoDesc" style={styles.text} fontWeightcolor="textSecondary">{item.description}</Text>
+          <Text testID="repoDesc" style={styles.text} color="textSecondary">{item.description}</Text>
           <Text>
             <Text testID="repoLang" color="textWhite" style={styles.languageText}>{item.language}</Text>
         </Text>
