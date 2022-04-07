@@ -1,7 +1,8 @@
-import { View, StyleSheet, Image } from "react-native";
+import { View, StyleSheet, Image, Pressable } from "react-native";
 import Text from './Text';
 import theme from '../theme';
 import RepositoryCountItem from "./RepositoryCountItem";
+import * as Linking from 'expo-linking';
 
 const styles = StyleSheet.create({
   container: {
@@ -25,7 +26,8 @@ const styles = StyleSheet.create({
   languageText: {
     backgroundColor: theme.colors.primary,
     padding: 3,
-    borderRadius: 10,
+    margin: 1,
+    borderRadius: 6,
   },
   avatar: {
     alignSelf: 'flex-start',
@@ -33,9 +35,25 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
   },
+  button: {
+    backgroundColor: theme.colors.primary,
+    margin: 7,
+    padding: 8,
+    borderRadius: 6,
+    textAlign: 'center',
+  },
+  text: {
+    padding: 2,
+    margin: 1,
+  },
 });
 
-const RepositoryItem = ({ item }) => {
+const RepositoryItem = ({ item, githubLink }) => {
+
+  const handlePress = () => {
+    Linking.openURL(item.url);
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.itemInfoContainer}>
@@ -46,8 +64,8 @@ const RepositoryItem = ({ item }) => {
           }} 
         />
         <View style={styles.itemTextContainer}>
-          <Text testID="repoFullName" fontWeight="bold">{item.fullName}</Text>
-          <Text testID="repoDesc" color="textSecondary">{item.description}</Text>
+          <Text testID="repoFullName" style={styles.text} fontWeight="bold">{item.fullName}</Text>
+          <Text testID="repoDesc" style={styles.text} fontWeightcolor="textSecondary">{item.description}</Text>
           <Text>
             <Text testID="repoLang" color="textWhite" style={styles.languageText}>{item.language}</Text>
         </Text>
@@ -59,6 +77,13 @@ const RepositoryItem = ({ item }) => {
         <RepositoryCountItem count={item.reviewCount} countName="Reviews" />
         <RepositoryCountItem count={item.ratingAverage} countName="Rating" />
       </View>
+      {githubLink ?
+        <Pressable onPress={handlePress}>
+          <Text style={styles.button} color="textWhite">Open in GitHub</Text>
+        </Pressable>
+        :
+        <></>
+      }
     </View>
   )
 };
