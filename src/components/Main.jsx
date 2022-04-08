@@ -5,6 +5,7 @@ import RepositoryList from './RepositoryList';
 import SignIn from './SignIn';
 import SignOut from './SignOut';
 import RepositoryItemContainer from './RepositoryItemContainer';
+import CreateReview from './CreateReview';
 
 const styles = StyleSheet.create({
   container: {
@@ -24,6 +25,7 @@ const Main = () => {
         <Route path="/signin" element={<SignIn />} exact />
         <Route path="/signout" element={<SignOut />} exact />
         <Route path="/repository/:repositoryId" element={<RepositoryItemContainer />} exact />
+        <Route path="/createreview" element={<CreateReview />} exact /> 
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </View>

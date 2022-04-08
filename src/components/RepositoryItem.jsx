@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     display: 'flex',
     flexDirection: 'column',
+    flex: 1,
   },
   countContainer: {
     display: 'flex',
@@ -17,10 +18,12 @@ const styles = StyleSheet.create({
   },
   itemInfoContainer: {
     display: 'flex',
+    flex: 1,
     flexDirection: 'row',
   },
   itemTextContainer: {
     display: 'flex',
+    flex: 1,
     flexDirection: 'column',
   },
   languageText: {

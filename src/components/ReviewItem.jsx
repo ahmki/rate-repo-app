@@ -1,6 +1,7 @@
 import { View, StyleSheet } from "react-native";
 import Text from './Text';
 import theme from '../theme';
+import format from "date-fns/format";
 
 const styles = StyleSheet.create({
   container: {
@@ -23,15 +24,20 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     flexWrap: 'wrap',
     flex: 1,
+  },
+  commentContainer: {
+    flex: 1,
     flexShrink: 1,
-  }
+    paddingTop: 3,
+    paddingBottom: 5,
+  },
 })
 
 const ReviewItem = ({ review }) => {
 
   const { text, createdAt, rating, user } = review.node;
-
-  console.log('review', review);
+  const formattedDate = format(new Date(createdAt), 'dd.MM.yyyy');
+  
   return (
     <View style={styles.container}>
       <View style={styles.ratingContainer}>
@@ -39,8 +45,11 @@ const ReviewItem = ({ review }) => {
       </View>
       <View style={styles.infoContainer}>
         <Text fontWeight="bold">{user.username}</Text>
-        <Text color="textSecondary">{createdAt}</Text>
-        <Text>{text}</Text>
+        <Text color="textSecondary">{formattedDate}</Text>
+        <View style={styles.commentContainer}>
+          <Text>{text}</Text>
+
+        </View>
       </View>
     </View>
   )

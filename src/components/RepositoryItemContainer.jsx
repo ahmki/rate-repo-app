@@ -16,7 +16,6 @@ const ItemSeparator = () => <View style={styles.separator} />;
 const RepositoryItemContainer = () => {
   const { repositoryId } = useParams();
   const { data, loading } = useRepository(repositoryId);
-  console.log('data', data)
   
   return (
     <View>
